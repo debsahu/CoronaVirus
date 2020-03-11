@@ -20,6 +20,6 @@ python coronavirus.py
 Build and Run
 
 ```
-docker build -t coronavirus .
-docker run --rm coronavirus
+docker build -t debsahu/coronavirus .
+docker run --rm debsahu/coronavirus
 ```
