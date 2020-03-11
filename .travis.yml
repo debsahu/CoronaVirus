@@ -4,5 +4,5 @@ services:
   - docker
 
 before_install:
-  - docker build -t debsahu/CoronaVirus .
-  - docker run --rm debsahu/CoronaVirus
+  - docker build -t debsahu/coronavirus .
+  - docker run --rm debsahu/coronavirus
