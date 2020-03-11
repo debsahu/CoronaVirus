@@ -1,4 +1,4 @@
-language: python3
+language: python
 
 services:
   - docker
@@ -6,3 +6,6 @@ services:
 before_install:
   - docker build -t debsahu/coronavirus .
   - docker run --rm debsahu/coronavirus
+
+script:
+  - coronavirus
