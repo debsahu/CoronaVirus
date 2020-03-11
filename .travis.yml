@@ -7,5 +7,8 @@ before_install:
   - docker build -t debsahu/coronavirus .
   - docker run --rm debsahu/coronavirus
 
+install: 
+  - pip install -r requirements.txt
+
 script:
-  - coronavirus
+  - python coronavirus.py
