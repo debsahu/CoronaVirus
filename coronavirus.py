@@ -10,7 +10,8 @@ corona_main_page = requests.get(base_url + '/coronavirus')
 
 ## Parse link to statistics page
 soup_link = BeautifulSoup(corona_main_page.text, 'html.parser')
-link = soup_link.find('div', id="block-3_114405").find('span', {'class': 'readLink'}).find('a', href=True)['href']
+# link = soup_link.find('div', id="block-3_114405").find('span', class_='readLink').find('a', href=True)['href']
+link = soup_link.find('a', title='<span class="sr-only">Michigan Data:</span>', href=True)['href']
 # print(link)
 
 ## Follow the link and parse total michigan statistics
