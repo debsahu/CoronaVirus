@@ -18,11 +18,13 @@ link = soup_link.find('a', title='<span class="sr-only">Michigan Data:</span>', 
 ## Follow the link and parse total michigan statistics
 page = requests.get(base_url + link)
 soup = BeautifulSoup(page.text, 'html.parser')
-pos = soup.find('table').find_all("strong")[-1].text.strip()
+pos = soup.find('table').find_all("strong")[-2].text.strip()
+death = soup.find('table').find_all("strong")[-1].text.strip()
 # print(pos)
-print(pos + " confirmed COVID-19 cases in Michigan as of " + date)
+print("COVID-19: " + pos + " cases & " + death + " deaths in Michigan as of " + date)
 
 report = {}
 report["value1"] = pos
-report["value2"] = date
+report["value2"] = death
+report["value3"] = date
 requests.post("https://maker.ifttt.com/trigger/covid19/with/key/" + ifttt_config.api_key, data=report)
