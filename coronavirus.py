@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
+import ifttt_config
 
 x = datetime.datetime.now()
 date = x.strftime("%D %T")
@@ -24,4 +25,4 @@ print(pos + " confirmed COVID-19 cases in Michigan as of " + date)
 report = {}
 report["value1"] = pos
 report["value2"] = date
-requests.post("https://maker.ifttt.com/trigger/covid19/with/key/XXXXXXXXXXXXXXXXXXXX", data=report)
+requests.post("https://maker.ifttt.com/trigger/covid19/with/key/" + ifttt_config.api_key, data=report)
