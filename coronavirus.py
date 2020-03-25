@@ -18,8 +18,8 @@ link = soup_link.find('a', string='See Cumulative Data', href=True)['href']
 ## Follow the link and parse total michigan statistics
 page = requests.get(base_url + link)
 soup = BeautifulSoup(page.text, 'html.parser')
-pos = soup.find('table').find_all("strong")[-2].text.strip()
-death = soup.find('table').find_all("strong")[-1].text.strip()
+pos = soup.find('table').find_all("tr")[-1].find_all("td")[-2].text.strip()
+death = soup.find('table').find_all("tr")[-1].find_all("td")[-1].text.strip()
 # print(pos)
 print("COVID-19: " + pos + " cases & " + death + " deaths in Michigan as of " + date)
 
